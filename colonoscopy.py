@@ -33,9 +33,9 @@ uploaded_file = st.file_uploader(
 if uploaded_file is not None:
     # 读取上传的文件
     if uploaded_file.name.endswith('.csv'):
-        data = pd.read_csv(uploaded_file, encoding="utf-8")
+        data = pd.read_csv(uploaded_file)
     elif uploaded_file.name.endswith('.xlsx'):
-        data = pd.read_excel(uploaded_file, encoding="utf-8")
+        data = pd.read_excel(uploaded_file)
 
 
     # 假设数据有三列，每列包含一个人的数据
@@ -96,7 +96,7 @@ if uploaded_file is not None:
 
                 # Load the trained model for predict
                 with open(
-                        "sklearn_GBM_best_model.sav",
+                        "XGBoost_best_model.sav",
                         "rb") as f:
                     model = pickle.load(f)
                 # model = joblib.load("E:/上中医/研0/论文写作/结直肠癌行为预测/实验更新_20250105/机器学习模型/1_机器学习模型训练/Model_Parameters/XGBoost_best_model.sav")
